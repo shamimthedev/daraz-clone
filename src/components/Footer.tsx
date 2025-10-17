@@ -52,7 +52,7 @@ export function Footer() {
             <div className="App_description flex items-end gap-5 mb-5"> 
               <div>
                 <Image
-                  src="/assets/img/QR.png"
+                  src="/assets/img/footer/qr.webp"
                   alt="QR Code"
                   width={100}
                   height={100}
@@ -61,7 +61,7 @@ export function Footer() {
               </div>
               <div>
                 <Image
-                  src="/assets/img/applogo.png"
+                  src="/assets/img/footer/applogo.png"
                   alt="Daraz App Logo"
                   width={38}
                   height={38}

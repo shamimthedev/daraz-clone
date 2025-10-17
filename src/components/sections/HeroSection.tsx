@@ -56,7 +56,7 @@ export function HeroSection() {
           {/* Right: Static App Promo (200px width on desktop, hidden on mobile) */}
           <div className="hidden md:block w-[200px] relative rounded overflow-hidden">
             <Image
-              src="/assets/img/hero-download-the-app.png"
+              src="/assets/img/banner/sidebar.png"
               alt="Download the Daraz App"
               fill
               className="object-cover"
