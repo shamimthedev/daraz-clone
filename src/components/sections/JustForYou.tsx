@@ -11,19 +11,19 @@ interface Product {
 }
 
 const products: Product[] = [
-  { id: 1, name: '1 Pair Arm hand Sleeves For Fashion cycling biking running arm sun protection sleeves', price: '$134', oldPrice: '$550', discount: '-70%', image: '/assets/img/f1.jpg' },
-  { id: 2, name: 'Wireless Bluetooth Earbuds with Charging Case', price: '$29', oldPrice: '$99', discount: '-71%', image: '/assets/img/f2.jpg' },
-  { id: 3, name: '1 Pair Arm hand Sleeves For Fashion cycling biking...', price: '$134', oldPrice: '$550', discount: '-70%', image: '/assets/img/f3.jpg' },
-  { id: 4, name: '1 Pair Arm hand Sleeves For Fashion cycling biking...', price: '$134', oldPrice: '$550', discount: '-70%', image: '/assets/img/f4.jpg' },
-  { id: 5, name: '1 Pair Arm hand Sleeves For Fashion cycling biking...', price: '$134', oldPrice: '$550', discount: '-70%', image: '/assets/img/f5.jpg' },
-  { id: 6, name: '1 Pair Arm hand Sleeves For Fashion cycling biking...', price: '$134', oldPrice: '$550', discount: '-70%', image: '/assets/img/3332e7f6660024139b771287ccba37e3.jpg' },
+  { id: 1, name: '1 Pair Arm hand Sleeves For Fashion cycling biking running arm sun protection sleeves', price: '$134', oldPrice: '$550', discount: '-70%', image: '/assets/img/flashsale/01.jpg' },
+  { id: 2, name: 'Wireless Bluetooth Earbuds with Charging Case', price: '$29', oldPrice: '$99', discount: '-71%', image: '/assets/img/flashsale/02.jpg' },
+  { id: 3, name: '1 Pair Arm hand Sleeves For Fashion cycling biking...', price: '$134', oldPrice: '$550', discount: '-70%', image: '/assets/img/flashsale/03.jpg' },
+  { id: 4, name: '1 Pair Arm hand Sleeves For Fashion cycling biking...', price: '$134', oldPrice: '$550', discount: '-70%', image: '/assets/img/flashsale/04.jpg' },
+  { id: 5, name: '1 Pair Arm hand Sleeves For Fashion cycling biking...', price: '$134', oldPrice: '$550', discount: '-70%', image: '/assets/img/flashsale/05.jpg' },
+  { id: 6, name: '1 Pair Arm hand Sleeves For Fashion cycling biking...', price: '$134', oldPrice: '$550', discount: '-70%', image: '/assets/img/flashsale/06.jpg' },
   ...Array.from({ length: 10 }, (_, i) => ({
     id: 7 + i,
     name: 'More Products Here...',
     price: '$134',
     oldPrice: '$550',
     discount: '-70%',
-    image: `/assets/img/f${(i % 5) + 1}.jpg`
+    image: `/assets/img/flashsale/0${(i % 5) + 1}.jpg`
   })),
 ]
 
