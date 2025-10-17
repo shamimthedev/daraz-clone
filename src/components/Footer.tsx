@@ -49,7 +49,7 @@ export function Footer() {
 
           {/* Right Col: App Promo */}
           <div className="md:col-span-1 text-white">
-            <div className="App_description flex items-end gap-5 mb-5"> 
+            <div className="flex items-center gap-5 mb-5"> 
               <div>
                 <Image
                   src="/assets/img/footer/qr.webp"
@@ -65,10 +65,10 @@ export function Footer() {
                   alt="Daraz App Logo"
                   width={38}
                   height={38}
-                  className="mb-2"
+                  className="mb-1"
                 />
                 <p className="text-primary font-bold text-base m-0">Happy Shopping</p>
-                <p className="text-sm m-0">Download App</p>
+                <p className="text-gray text-xs m-0">Download App</p>
               </div>
             </div>
           </div>
