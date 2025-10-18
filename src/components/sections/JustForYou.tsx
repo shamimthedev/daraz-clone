@@ -1,33 +1,21 @@
+'use client';
+
 import Link from 'next/link'
 import { ProductCard } from '../ProductCard'
-
-interface Product {
-  id: number
-  name: string
-  price: string
-  oldPrice: string
-  discount: string
-  image: string
-}
-
-const products: Product[] = [
-  { id: 1, name: '1 Pair Arm hand Sleeves For Fashion cycling biking running arm sun protection sleeves', price: '$134', oldPrice: '$550', discount: '-70%', image: '/assets/img/flashsale/01.jpg' },
-  { id: 2, name: 'Wireless Bluetooth Earbuds with Charging Case', price: '$29', oldPrice: '$99', discount: '-71%', image: '/assets/img/flashsale/02.jpg' },
-  { id: 3, name: '1 Pair Arm hand Sleeves For Fashion cycling biking...', price: '$134', oldPrice: '$550', discount: '-70%', image: '/assets/img/flashsale/03.jpg' },
-  { id: 4, name: '1 Pair Arm hand Sleeves For Fashion cycling biking...', price: '$134', oldPrice: '$550', discount: '-70%', image: '/assets/img/flashsale/04.jpg' },
-  { id: 5, name: '1 Pair Arm hand Sleeves For Fashion cycling biking...', price: '$134', oldPrice: '$550', discount: '-70%', image: '/assets/img/flashsale/05.jpg' },
-  { id: 6, name: '1 Pair Arm hand Sleeves For Fashion cycling biking...', price: '$134', oldPrice: '$550', discount: '-70%', image: '/assets/img/flashsale/06.jpg' },
-  ...Array.from({ length: 10 }, (_, i) => ({
-    id: 7 + i,
-    name: 'More Products Here...',
-    price: '$134',
-    oldPrice: '$550',
-    discount: '-70%',
-    image: `/assets/img/flashsale/0${(i % 5) + 1}.jpg`
-  })),
-]
+import { sampleProducts } from '@/lib/products'
+import { useState } from 'react'
 
 export function JustForYou() {
+  const [displayCount, setDisplayCount] = useState(12);
+  
+  // Get all products, can be customized based on user preferences
+  const products = sampleProducts.slice(0, displayCount);
+  const hasMore = displayCount < sampleProducts.length;
+
+  const handleLoadMore = () => {
+    setDisplayCount(prev => Math.min(prev + 12, sampleProducts.length));
+  };
+
   return (
     <section id="Categories_section" className="py-8">
       <div className="container mx-auto">
@@ -38,16 +26,29 @@ export function JustForYou() {
 
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-2 auto-rows-fr">
           {products.map((product) => (
-            <ProductCard key={product.id} {...product} />
+            <ProductCard 
+              key={product.id}
+              id={product.id}
+              name={product.name}
+              price={`৳${product.price}`}
+              oldPrice={`৳${product.oldPrice || product.price}`}
+              discount={product.oldPrice ? `-${Math.round(((product.oldPrice - product.price) / product.oldPrice) * 100)}%` : ''}
+              image={product.image}
+            />
           ))}
         </div>
 
         {/* Load More Button */}
-        <div className="text-center mt-6">
-          <Link href="#" className="inline-block px-8 py-2 border border-primary text-primary bg-white rounded hover:text-white hover:bg-primary ">
-            <b>Load More</b>
-          </Link>
-        </div>
+        {hasMore && (
+          <div className="text-center mt-6">
+            <button 
+              onClick={handleLoadMore}
+              className="inline-block px-8 py-2 border border-primary text-primary bg-white rounded hover:text-white hover:bg-primary transition-all"
+            >
+              <b>Load More</b>
+            </button>
+          </div>
+        )}
       </div>
     </section>
   )
