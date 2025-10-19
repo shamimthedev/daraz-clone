@@ -60,20 +60,20 @@ export default function Filters({ onFilterChange, initialFilters = defaultFilter
     colors: false 
   });
 
-  const handleChange = (key: keyof FiltersType, value: any) => {
-    let newFilters: FiltersType = { ...filters };
+  const handleChange = (key: keyof FiltersType, value: string | number | boolean | null) => {
+    const newFilters: FiltersType = { ...filters };
     
     if (key === 'categories' || key === 'brands' || key === 'sizes' || key === 'promotions' || key === 'shippedFrom' || key === 'colors' || key === 'warranty') {
       const arr = newFilters[key] as string[];
-      if (arr.includes(value)) {
+      if (arr.includes(value as string)) {
         newFilters[key] = arr.filter(v => v !== value);
       } else {
-        newFilters[key] = [...arr, value];
+        newFilters[key] = [...arr, value as string];
       }
     } else if (key === 'deliveryOption') {
-      newFilters[key] = newFilters[key] === value ? null : value;
+      newFilters[key] = newFilters[key] === value ? null : (value as boolean);
     } else {
-      newFilters[key] = value;
+      newFilters[key] = value as number;
     }
     
     setFilters(newFilters);
