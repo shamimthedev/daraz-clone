@@ -1,6 +1,5 @@
 'use client';
 
-import Link from 'next/link'
 import { ProductCard } from '../ProductCard'
 import { sampleProducts } from '@/lib/products'
 import { useState } from 'react'
