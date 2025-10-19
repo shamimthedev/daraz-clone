@@ -1,9 +1,10 @@
 'use client'
 
 import { useState } from 'react'
-import { Menu, Search as SearchIcon, ShoppingCart } from 'lucide-react'
+import { Menu, Search as SearchIcon } from 'lucide-react'
 import Link from 'next/link'
 import { MobileMenu } from './MobileMenu'
+import CartIcon from './CartIcon'
 
 export function Navbar() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -41,11 +42,11 @@ export function Navbar() {
                             </button>
                         </form>
                         <div className="flex items-center space-x-4">
-                            <Link href="#"><ShoppingCart size={30} /></Link>
+                            <CartIcon />
                         </div>
                     </div>
                     <div className="md:hidden flex items-center space-x-4">
-                        <Link href="#"><ShoppingCart size={24} /></Link>
+                        <CartIcon />
                         <button onClick={toggleMobileMenu}>
                             <Menu size={24} />
                         </button>
