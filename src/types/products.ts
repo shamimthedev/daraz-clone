@@ -1,3 +1,4 @@
+// types/products.ts
 export interface Product {
   id: number;
   name: string;
@@ -8,11 +9,31 @@ export interface Product {
   category?: string;
   size?: string;
   color?: string;
-  rating: number; // 1-5
+  rating: number; 
   shippedFrom: string;
   warranty: 'No Warranty' | 'Seller Warranty' | 'Brand Warranty' | 'International Seller Warranty';
-  deliveryOption: boolean; // true for Yes
-  promotions: string[]; // e.g., ['Flash Sale', 'Free Delivery']
+  deliveryOption: boolean;
+  promotions: string[];
+  description?: string; 
+  specifications?: ProductSpecification[]; 
+}
+
+export interface ProductSpecification {
+  label: string;
+  value: string;
+}
+
+export interface Review {
+  id: number;
+  userName: string;
+  userImage?: string;
+  rating: number; 
+  date: string; 
+  title?: string;
+  comment: string;
+  helpful: number; 
+  verified: boolean; 
+  images?: string[]; 
 }
 
 export interface Filters {
@@ -23,7 +44,7 @@ export interface Filters {
   shippedFrom: string[];
   minPrice: number;
   maxPrice: number;
-  rating: number; // 0 for no filter, 1-5
+  rating: number; 
   colors: string[];
   warranty: string[];
   deliveryOption: boolean | null;
