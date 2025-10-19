@@ -10,26 +10,30 @@ interface ProductCardProps {
   image: string
 }
 
-export function ProductCard({ name, price, oldPrice, discount, image }: ProductCardProps) {
+export function ProductCard({ id, name, price, oldPrice, discount, image }: ProductCardProps) {
   return (
-    <Link href="#" className="group block h-full">
-      <div className="bg-white shadow-sm hover:shadow-md transition-all overflow-hidden flex flex-col h-full">
-        <div className="relative w-full aspect-square">
+    <Link href={`/products/${id}`} className="group block h-full">
+      <div className="bg-white rounded-lg shadow-sm hover:shadow-lg transition-all overflow-hidden flex flex-col h-full">
+        <div className="relative w-full aspect-square overflow-hidden">
           <Image
             src={image}
             alt={name}
             fill
-            className="object-cover"
-            sizes="(max-width: 768px) 50vw, (max-width: 1024px) 25vw, 12.5vw"
+            className="object-cover group-hover:scale-105 transition-transform duration-300"
+            sizes="(max-width: 768px) 50vw, (max-width: 1024px) 25vw, 20vw"
           />
         </div>
-        <div className="p-2 flex-1 flex flex-col">
-          <p className="text-sm text-black mb-1 line-clamp-2 flex-1">{name}</p>
+        <div className="p-3 flex-1 flex flex-col">
+          <h3 className="text-sm text-gray-800 mb-2 line-clamp-2 flex-1 group-hover:text-orange-600 transition-colors">
+            {name}
+          </h3>
           <div>
-            <p className="text-[#f57224] text-lg font-semibold">{price}</p>
-            <div className="flex gap-2 text-sm">
-              <span className="text-[#9e9e9e] line-through">{oldPrice}</span>
-              <span className="text-[#212121]">{discount}</span>
+            <p className="text-orange-600 text-lg font-bold mb-1">{price}</p>
+            <div className="flex items-center gap-2 text-sm">
+              <span className="text-gray-400 line-through">{oldPrice}</span>
+              {discount && (
+                <span className="text-gray-700 font-medium">{discount}</span>
+              )}
             </div>
           </div>
         </div>
