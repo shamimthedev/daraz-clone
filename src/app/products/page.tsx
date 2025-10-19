@@ -102,7 +102,7 @@ export default function ProductsPage() {
                 <div className="flex gap-6">
                     {/* Sidebar Filters */}
                     <aside className="w-64 flex-shrink-0">
-                        <div className="bg-white rounded-lg shadow-sm p-4">
+                        <div className="bg-white rounded-[2px] shadow-sm p-4">
                             <h2 className="font-semibold text-lg mb-4">Filters</h2>
                             <Filters onFilterChange={handleFilterChange} initialFilters={filters} />
                         </div>
@@ -117,7 +117,7 @@ export default function ProductsPage() {
                         </div>
 
                         {/* Toolbar */}
-                        <div className="bg-white rounded-lg shadow-sm p-4 mb-6">
+                        <div className="bg-white rounded-[2px] shadow-sm p-4 mb-6">
                             <div className="flex flex-wrap items-center justify-between gap-4">
                                 {/* Left: Empty or additional info */}
                                 <div></div>
@@ -129,7 +129,7 @@ export default function ProductsPage() {
                                         <select
                                             value={sortBy}
                                             onChange={(e) => handleSortChange(e.target.value as SortOption)}
-                                            className="appearance-none px-4 py-2 pr-10 border border-gray-300 rounded-lg bg-white hover:bg-gray-50 transition-colors cursor-pointer text-sm font-medium"
+                                            className="appearance-none px-4 py-2 pr-10 border border-gray-300 rounded-[2px] bg-white hover:bg-gray-50 transition-colors cursor-pointer text-sm font-medium"
                                         >
                                             <option value="relevance">Sort by: Relevance</option>
                                             <option value="price-low">Price: Low to High</option>
@@ -141,7 +141,7 @@ export default function ProductsPage() {
                                     </div>
 
                                     {/* View Toggle */}
-                                    <div className="flex items-center gap-1 border border-gray-300 rounded-lg p-1">
+                                    <div className="flex items-center gap-1 border border-gray-300 rounded-[2px] p-1">
                                         <button
                                             onClick={() => setViewMode('grid')}
                                             className={`p-2 rounded transition-colors ${viewMode === 'grid'
@@ -150,7 +150,7 @@ export default function ProductsPage() {
                                                 }`}
                                             title="Grid View"
                                         >
-                                            <Grid className="w-4 h-4" />
+                                            <Grid className="w-3 h-3" />
                                         </button>
                                         <button
                                             onClick={() => setViewMode('list')}
@@ -160,7 +160,7 @@ export default function ProductsPage() {
                                                 }`}
                                             title="List View"
                                         >
-                                            <List className="w-4 h-4" />
+                                            <List className="w-3 h-3" />
                                         </button>
                                     </div>
                                 </div>
@@ -190,13 +190,13 @@ export default function ProductsPage() {
 
                                 {/* Load More */}
                                 <div className="mt-8 text-center">
-                                    <button className="px-8 py-3 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors font-medium">
+                                    <button className="px-8 py-3 bg-orange-500 text-white rounded-[2px] hover:bg-orange-600 transition-colors font-medium">
                                         Load More Products
                                     </button>
                                 </div>
                             </>
                         ) : (
-                            <div className="bg-white rounded-lg shadow-sm p-12 text-center">
+                            <div className="bg-white rounded-[2px] shadow-sm p-12 text-center">
                                 <p className="text-gray-500 text-lg mb-2">No products found</p>
                                 <p className="text-gray-400 text-sm">Try adjusting your filters</p>
                             </div>
