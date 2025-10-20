@@ -28,7 +28,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
       color: product.color,
       size: product.size,
     }, quantity);
-    
+
     toast.success(`${quantity} item${quantity > 1 ? 's' : ''} added to cart!`);
   };
 
@@ -43,13 +43,13 @@ export default function ProductDetail({ product }: ProductDetailProps) {
       color: product.color,
       size: product.size,
     }, quantity);
-    
+
     // Redirect to cart page
     window.location.href = '/cart';
   };
 
   // Calculate discount percentage
-  const discountPercentage = product.oldPrice 
+  const discountPercentage = product.oldPrice
     ? Math.round(((product.oldPrice - product.price) / product.oldPrice) * 100)
     : 0;
 
@@ -75,11 +75,11 @@ export default function ProductDetail({ product }: ProductDetailProps) {
   const breadcrumbItems: BreadcrumbItem[] = [
     { label: 'Products', href: '/products' },
   ];
-  
+
   if (product.category) {
     breadcrumbItems.push({ label: product.category, href: `/products?category=${product.category}` });
   }
-  
+
   breadcrumbItems.push({ label: product.name });
 
   return (
@@ -92,25 +92,25 @@ export default function ProductDetail({ product }: ProductDetailProps) {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
           {/* Left: Product Image */}
           <div className="lg:col-span-1">
-            <div className="bg-white rounded-lg shadow-sm p-4">
+            <div className="bg-white rounded-[2px] shadow-sm p-4">
               <Image
                 src={product.image}
                 alt={product.name}
                 width={400}
                 height={400}
-                className="w-full h-96 object-contain rounded-lg"
+                className="w-full h-96 object-contain rounded-[2px]"
               />
             </div>
           </div>
 
           {/* Middle: Product Details */}
           <div className="lg:col-span-1 space-y-4">
-            <div className="bg-white rounded-lg shadow-sm p-6">
+            <div className="bg-white rounded-[2px] shadow-sm p-6">
               {/* Promotions Badges */}
               {product.promotions.length > 0 && (
                 <div className="flex items-center gap-2 mb-4 flex-wrap">
                   {product.promotions.map((promo, index) => (
-                    <span 
+                    <span
                       key={index}
                       className="bg-purple-100 text-purple-700 px-2 py-1 rounded text-xs font-medium"
                     >
@@ -214,7 +214,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
 
           {/* Right: Delivery Options */}
           <div className="lg:col-span-1 space-y-4">
-            <div className="bg-white rounded-lg shadow-sm p-4 sticky top-4">
+            <div className="bg-white rounded-[2px] shadow-sm p-4 sticky top-4">
               {/* Delivery Address */}
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center gap-2">
@@ -275,7 +275,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
         </div>
 
         {/* Product Tabs - Details & Reviews */}
-        <ProductTabs 
+        <ProductTabs
           description={mockProductDetails.description}
           specifications={mockProductDetails.specifications}
           reviews={mockReviews}

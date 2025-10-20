@@ -13,11 +13,11 @@ interface ProductTabsProps {
 
 type TabType = 'details' | 'reviews';
 
-export default function ProductTabs({ 
-  description, 
-  specifications, 
+export default function ProductTabs({
+  description,
+  specifications,
   reviews,
-  averageRating 
+  averageRating
 }: ProductTabsProps) {
   const [activeTab, setActiveTab] = useState<TabType>('details');
 
@@ -35,9 +35,9 @@ export default function ProductTabs({
     return (
       <div className="flex text-yellow-400">
         {Array.from({ length: 5 }, (_, i) => (
-          <Star 
-            key={i} 
-            className={`w-4 h-4 ${i < rating ? 'fill-current' : ''}`} 
+          <Star
+            key={i}
+            className={`w-4 h-4 ${i < rating ? 'fill-current' : ''}`}
           />
         ))}
       </div>
@@ -46,35 +46,33 @@ export default function ProductTabs({
 
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
-    return date.toLocaleDateString('en-US', { 
-      year: 'numeric', 
-      month: 'long', 
-      day: 'numeric' 
+    return date.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
     });
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-sm mt-6">
+    <div className="bg-white rounded-[2px] shadow-sm mt-6">
       {/* Tabs Header */}
       <div className="border-b border-gray-200">
         <div className="flex">
           <button
             onClick={() => setActiveTab('details')}
-            className={`px-6 py-4 font-medium text-sm transition-colors relative ${
-              activeTab === 'details'
+            className={`px-6 py-4 font-medium text-sm transition-colors relative ${activeTab === 'details'
                 ? 'text-orange-600 border-b-2 border-orange-600'
                 : 'text-gray-600 hover:text-gray-900'
-            }`}
+              }`}
           >
             Product Details
           </button>
           <button
             onClick={() => setActiveTab('reviews')}
-            className={`px-6 py-4 font-medium text-sm transition-colors relative ${
-              activeTab === 'reviews'
+            className={`px-6 py-4 font-medium text-sm transition-colors relative ${activeTab === 'reviews'
                 ? 'text-orange-600 border-b-2 border-orange-600'
                 : 'text-gray-600 hover:text-gray-900'
-            }`}
+              }`}
           >
             Reviews ({reviews.length})
           </button>
@@ -97,11 +95,11 @@ export default function ProductTabs({
             {specifications.length > 0 && (
               <div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-3">Specifications</h3>
-                <div className="border border-gray-200 rounded-lg overflow-hidden">
+                <div className="border border-gray-200 rounded-[2px] overflow-hidden">
                   <table className="w-full">
                     <tbody>
                       {specifications.map((spec, index) => (
-                        <tr 
+                        <tr
                           key={index}
                           className={index % 2 === 0 ? 'bg-gray-50' : 'bg-white'}
                         >
@@ -126,15 +124,15 @@ export default function ProductTabs({
             {/* Reviews Summary */}
             <div className="flex flex-col md:flex-row gap-6 pb-6 border-b border-gray-200">
               {/* Average Rating */}
-              <div className="flex flex-col items-center justify-center bg-gray-50 rounded-lg p-6 md:w-64">
+              <div className="flex flex-col items-center justify-center bg-gray-50 rounded-[2px] p-6 md:w-64">
                 <div className="text-5xl font-bold text-gray-900 mb-2">
                   {averageRating.toFixed(1)}
                 </div>
                 <div className="flex text-yellow-400 mb-2">
                   {Array.from({ length: 5 }, (_, i) => (
-                    <Star 
-                      key={i} 
-                      className={`w-5 h-5 ${i < Math.floor(averageRating) ? 'fill-current' : ''}`} 
+                    <Star
+                      key={i}
+                      className={`w-5 h-5 ${i < Math.floor(averageRating) ? 'fill-current' : ''}`}
                     />
                   ))}
                 </div>
@@ -147,15 +145,15 @@ export default function ProductTabs({
               <div className="flex-1 space-y-2">
                 {[5, 4, 3, 2, 1].map((star) => {
                   const count = reviewStats[star as keyof typeof reviewStats];
-                  const percentage = reviewStats.total > 0 
-                    ? (count / reviewStats.total) * 100 
+                  const percentage = reviewStats.total > 0
+                    ? (count / reviewStats.total) * 100
                     : 0;
-                  
+
                   return (
                     <div key={star} className="flex items-center gap-3">
                       <span className="text-sm text-gray-600 w-8">{star} ★</span>
                       <div className="flex-1 h-2 bg-gray-200 rounded-full overflow-hidden">
-                        <div 
+                        <div
                           className="h-full bg-yellow-400 transition-all"
                           style={{ width: `${percentage}%` }}
                         />
@@ -212,9 +210,9 @@ export default function ProductTabs({
                     {review.images && review.images.length > 0 && (
                       <div className="flex gap-2 mb-3">
                         {review.images.map((img, idx) => (
-                          <div 
+                          <div
                             key={idx}
-                            className="w-20 h-20 rounded-lg bg-gray-100 border border-gray-200"
+                            className="w-20 h-20 rounded-[2px] bg-gray-100 border border-gray-200"
                           >
                             {/* Placeholder for review images */}
                           </div>
