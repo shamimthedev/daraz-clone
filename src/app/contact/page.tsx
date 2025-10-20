@@ -1,10 +1,6 @@
-'use client';
-
-import { useState } from 'react';
 import { Package, Gift, XCircle, MessageCircle } from 'lucide-react';
 
 export default function ContactPage() {
-    const [searchQuery, setSearchQuery] = useState('');
 
     return (
         <div className="min-h-screen py-8 px-4 sm:px-6 lg:px-8">
@@ -79,7 +75,7 @@ export default function ContactPage() {
                         <div className="flex flex-1 flex-col">
                             {/* Text Content */}
                             <div className="text-center md:text-left mb-2 text-sm">
-                                <p className="text-gray-700 mb-2">Can't find the answer you are looking for?</p>
+                                <p className="text-gray-700 mb-2">Can&apos;t find the answer you are looking for?</p>
                                 <p className="text-gray-700 mb-1">
                                     <span className="font-semibold">Daz</span>, your friendly automated chat assistant is here to assist you{' '}
                                     <span className="text-primary font-semibold">24 hours</span> a day!

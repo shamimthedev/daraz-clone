@@ -11,7 +11,7 @@ import toast from 'react-hot-toast';
 
 export default function CheckoutPage() {
   const router = useRouter();
-  const { items, getTotalPrice, clearCart } = useCartStore();
+  const { items, getTotalPrice } = useCartStore();
   const [isProcessing, setIsProcessing] = useState(false);
   const [isPlacingOrder, setIsPlacingOrder] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
@@ -312,7 +312,7 @@ export default function CheckoutPage() {
                       {formData.paymentMethod === 'bank' && (
                         <div className="mt-3 p-3 bg-orange-50 border border-orange-200 rounded text-sm">
                           <p className="font-medium text-gray-900 mb-1">Payment Instructions:</p>
-                          <p className="text-gray-700">After placing the order, you'll receive payment details via email and SMS.</p>
+                          <p className="text-gray-700">After placing the order, you&apos;ll receive payment details via email and SMS.</p>
                         </div>
                       )}
                     </div>

@@ -196,7 +196,7 @@ export default function OrderSuccessPage() {
             ) : (
               <div className="bg-orange-50 border border-orange-200 rounded p-3 text-sm text-gray-700">
                 <p className="font-medium mb-1">📱 Payment Instructions</p>
-                <p>We've sent payment details to your email and SMS. Please complete the payment within 24 hours.</p>
+                <p>We&apos;ve sent payment details to your email and SMS. Please complete the payment within 24 hours.</p>
               </div>
             )}
           </div>
@@ -208,11 +208,11 @@ export default function OrderSuccessPage() {
           <ul className="space-y-2 text-sm">
             <li className="flex items-start gap-2">
               <span className="text-lg">✉️</span>
-              <span>You'll receive an order confirmation email shortly</span>
+              <span>You&apos;ll receive an order confirmation email shortly</span>
             </li>
             <li className="flex items-start gap-2">
               <span className="text-lg">📦</span>
-              <span>We'll prepare your order for delivery within 1-2 business days</span>
+              <span>We&apos;ll prepare your order for delivery within 1-2 business days</span>
             </li>
             <li className="flex items-start gap-2">
               <span className="text-lg">🚚</span>
