@@ -8,13 +8,21 @@ import { useCartStore } from '@/store/cartStore';
 export default function CartIcon() {
   const [mounted, setMounted] = useState(false);
   
+  // Subscribe to the entire store to ensure updates
+  const getTotalItems = useCartStore((state) => state.getTotalItems);
   const items = useCartStore((state) => state.items);
   
-  const totalItems = items.reduce((total, item) => total + item.quantity, 0);
+  const [totalItems, setTotalItems] = useState(0);
 
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  useEffect(() => {
+    if (mounted) {
+      setTotalItems(getTotalItems());
+    }
+  }, [items, getTotalItems, mounted]);
 
   return (
     <Link 
