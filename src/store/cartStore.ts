@@ -1,6 +1,6 @@
 // store/cartStore.ts
 import { create } from 'zustand';
-import { persist } from 'zustand/middleware';
+import { persist, createJSONStorage } from 'zustand/middleware';
 
 export interface CartItem {
   id: number;
@@ -76,7 +76,21 @@ export const useCartStore = create<CartStore>()(
       },
 
       clearCart: () => {
+        // Clear state
         set({ items: [] });
+        
+        // Force clear from localStorage
+        if (typeof window !== 'undefined') {
+          try {
+            localStorage.removeItem('cart-storage');
+            // Force re-initialization by setting an empty state
+            localStorage.setItem('cart-storage', JSON.stringify({ state: { items: [] }, version: 0 }));
+            // Trigger a storage event to notify other tabs/components
+            window.dispatchEvent(new Event('storage'));
+          } catch (error) {
+            console.error('Error clearing cart storage:', error);
+          }
+        }
       },
 
       getTotalItems: () => {
@@ -96,6 +110,7 @@ export const useCartStore = create<CartStore>()(
     }),
     {
       name: 'cart-storage', // localStorage key
+      storage: createJSONStorage(() => localStorage),
     }
   )
 );
