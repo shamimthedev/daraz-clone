@@ -11,8 +11,14 @@ async function getProduct(id: string): Promise<Product | undefined> {
   return sampleProducts.find(p => p.id === productId);
 }
 
-export default async function ProductPage({ params }: { params: { id: string } }) {
-  const product = await getProduct(params.id);
+export default async function ProductPage({ 
+  params 
+}: { 
+  params: Promise<{ id: string }> 
+}) {
+  // Await params before accessing properties
+  const { id } = await params;
+  const product = await getProduct(id);
   
   if (!product) {
     notFound();
