@@ -13,7 +13,7 @@ interface ProductCardProps {
 export function ProductCard({ id, name, price, oldPrice, discount, image }: ProductCardProps) {
   return (
     <Link href={`/products/${id}`} className="group block h-full">
-      <div className="bg-white rounded-lg shadow-sm hover:shadow-lg transition-all overflow-hidden flex flex-col h-full">
+      <div className="bg-white rounded-[2px] shadow-sm hover:shadow-lg transition-all overflow-hidden flex flex-col h-full">
         <div className="relative w-full aspect-square overflow-hidden">
           <Image
             src={image}
