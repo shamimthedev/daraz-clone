@@ -10,7 +10,7 @@ export default function AboutPage() {
         <div className="absolute top-10 left-10 w-32 h-32 bg-orange-400 opacity-20 transform rotate-45"></div>
         <div className="absolute bottom-10 right-20 w-24 h-24 bg-orange-700 opacity-20 transform rotate-12"></div>
         <div className="absolute top-1/2 right-10 w-16 h-16 bg-white opacity-10 rounded-full"></div>
-        
+
         <div className="max-w-5xl mx-auto text-center relative z-10">
           <h1 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
             DARAZ IS A MALL, A MARKETPLACE
@@ -40,7 +40,7 @@ export default function AboutPage() {
               </p>
             </div>
             <div className="relative">
-              <div className="aspect-[4/3] relative rounded-lg overflow-hidden shadow-lg">
+              <div className="aspect-[4/3] relative rounded-[2px] overflow-hidden shadow-lg">
                 <Image
                   src="/assets/img/about/01.webp"
                   alt="Daraz team collaboration"
@@ -146,7 +146,7 @@ export default function AboutPage() {
               <h3 className="text-base md:text-lg font-semibold text-white">Fast Delivery</h3>
             </div>
           </div>
-          
+
           <p className="text-center text-white text-sm md:text-base mt-8 font-medium opacity-90">
             100% Purchase Protected
           </p>
