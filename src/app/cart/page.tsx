@@ -35,14 +35,14 @@ export default function CartPage() {
       <div className="min-h-screen bg-gray-50 py-8">
         <div className="max-w-7xl mx-auto px-4">
           <Breadcrumb items={[{ label: 'Shopping Cart' }]} />
-          
-          <div className="bg-white rounded-lg shadow-sm p-12 text-center">
+
+          <div className="bg-white rounded-[2px] shadow-sm p-12 text-center">
             <ShoppingBag className="w-24 h-24 text-gray-300 mx-auto mb-4" />
             <h2 className="text-2xl font-bold text-gray-800 mb-2">Your cart is empty</h2>
             <p className="text-gray-600 mb-6">Add items to get started</p>
             <Link
               href="/products"
-              className="inline-flex items-center gap-2 bg-orange-500 text-white px-6 py-3 rounded-[2px] hover:bg-orange-600 transition-colors font-medium"
+              className="inline-flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-[2px] hover:bg-orange-600 transition-colors font-medium"
             >
               <ArrowLeft className="w-5 h-5" />
               Continue Shopping
@@ -62,7 +62,7 @@ export default function CartPage() {
           {/* Cart Items */}
           <div className="lg:col-span-2 space-y-4">
             {/* Header */}
-            <div className="bg-white rounded-lg shadow-sm p-4 flex items-center justify-between">
+            <div className="bg-white rounded-[2px] shadow-sm p-4 flex items-center justify-between">
               <h1 className="text-xl font-bold text-gray-900">
                 Shopping Cart ({items.length} {items.length === 1 ? 'item' : 'items'})
               </h1>
@@ -76,7 +76,7 @@ export default function CartPage() {
 
             {/* Cart Items List */}
             {items.map((item) => (
-              <div key={item.id} className="bg-white rounded-lg shadow-sm p-4">
+              <div key={item.id} className="bg-white rounded-[2px] shadow-sm p-4">
                 <div className="flex gap-4">
                   {/* Product Image */}
                   <Link href={`/products/${item.id}`} className="flex-shrink-0">
@@ -85,20 +85,20 @@ export default function CartPage() {
                       alt={item.name}
                       width={120}
                       height={120}
-                      className="w-24 h-24 object-cover rounded-lg"
+                      className="w-24 h-24 object-cover rounded-[2px]"
                     />
                   </Link>
 
                   {/* Product Info */}
                   <div className="flex-1 min-w-0">
-                    <Link 
+                    <Link
                       href={`/products/${item.id}`}
                       className="text-gray-900 font-medium hover:text-orange-600 transition-colors line-clamp-2 mb-1"
                     >
                       {item.name}
                     </Link>
                     <p className="text-sm text-gray-600 mb-2">Brand: {item.brand}</p>
-                    
+
                     {/* Size & Color */}
                     {(item.size || item.color) && (
                       <div className="flex gap-3 text-sm text-gray-600 mb-2">
@@ -162,9 +162,9 @@ export default function CartPage() {
 
           {/* Order Summary */}
           <div className="lg:col-span-1">
-            <div className="bg-white rounded-lg shadow-sm p-6 sticky top-4">
+            <div className="bg-white rounded-[2px] shadow-sm p-6 sticky top-4">
               <h2 className="text-lg font-bold text-gray-900 mb-4">Order Summary</h2>
-              
+
               <div className="space-y-3 mb-4 pb-4 border-b border-gray-200">
                 <div className="flex justify-between text-gray-700">
                   <span>Subtotal ({items.reduce((sum, item) => sum + item.quantity, 0)} items)</span>
@@ -181,9 +181,12 @@ export default function CartPage() {
                 <span className="text-orange-600">৳{finalTotal}</span>
               </div>
 
-              <button className="w-full bg-orange-600 text-white py-3 rounded-[2px] font-semibold hover:bg-orange-700 transition-colors mb-3">
+              <Link
+                href="/checkout"
+                className="block w-full bg-primary text-white text-center py-3 rounded-[2px] font-semibold hover:bg-orange-700 transition-colors mb-3"
+              >
                 Proceed to Checkout
-              </button>
+              </Link>
 
               <div className="text-xs text-gray-500 text-center">
                 Safe and secure checkout
